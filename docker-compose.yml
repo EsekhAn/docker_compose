@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  builder:
+    image: maven:3.9-eclipse-temurin-21
+    volumes:
+      - .:/src:ro
+    command: >
+      sh -c "cp -r /src /work &&
+             cd /work &&
+             mvn clean package -DskipTests &&
+             cp /work/target/*.jar /artifacts/app.jar"
+    restart: "no"
