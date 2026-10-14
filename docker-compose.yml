@@ -4,11 +4,10 @@ services:
   builder:
     image: maven:3.9-eclipse-temurin-17
     volumes:
-      - .:/src:ro
+      - .:/src
       - shared:/shared
     command: >
-      sh -c "cp -r /src /work &&
-             cd /work &&
+      sh -c "cd /src &&
              mvn clean package -DskipTests &&
              cp /work/target/*.war /shared/app.war"
     restart: "no"
