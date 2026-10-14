@@ -13,7 +13,7 @@ services:
              cp /work/target/*.war /artifacts/app.war"
     restart: "no"
 
-tomcat:
+  tomcat:
     image: tomcat:9-jdk17-temurin
     volumes:
       - shared:/usr/local/tomcat/webapps
