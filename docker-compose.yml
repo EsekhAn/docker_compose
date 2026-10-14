@@ -13,5 +13,16 @@ services:
              cp /work/target/*.war /artifacts/app.war"
     restart: "no"
 
+tomcat:
+    image: tomcat:9-jdk17-temurin
+    volumes:
+      -shared:/usr/local/tomcat/webapps
+    depends_on:
+      builder:
+        condition: service_completed_successfully
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
 volumes:
   shared:
