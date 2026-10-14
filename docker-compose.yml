@@ -9,7 +9,7 @@ services:
     command: >
       sh -c "cd /src &&
              mvn clean package -DskipTests &&
-             cp /work/target/*.war /shared/app.war"
+             cp /src/target/*.war /shared/app.war"
     restart: "no"
 
   tomcat:
