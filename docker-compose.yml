@@ -5,9 +5,13 @@ services:
     image: maven:3.9-eclipse-temurin-21
     volumes:
       - .:/src:ro
+      - shared:/shared
     command: >
       sh -c "cp -r /src /work &&
              cd /work &&
              mvn clean package -DskipTests &&
-             cp /work/target/*.jar /artifacts/app.jar"
+             cp /work/target/*.war /artifacts/app.war"
     restart: "no"
+
+volumes:
+  shared:
