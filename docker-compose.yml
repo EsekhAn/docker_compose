@@ -16,7 +16,7 @@ services:
 tomcat:
     image: tomcat:9-jdk17-temurin
     volumes:
-      -shared:/usr/local/tomcat/webapps
+      - shared:/usr/local/tomcat/webapps
     depends_on:
       builder:
         condition: service_completed_successfully
